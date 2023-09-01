@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#e52a2a" />
+    <link rel="icon" type="image/png" href="logo.png" />
+
+    <title>Countdown Timer || by MUHAMMAD YOUSUF</title>
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navbar brand -->
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+          <img src="logo.png" height="40" alt="MDB Logo" loading="lazy" />
+        </a>
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Countdown Timer</a>
+            </li>
+          </ul>
+          <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+          <!-- Notifications -->
+          <div class="dropdown">
+            <a
+              class="text-reset me-3 dropdown-toggle hidden-arrow"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-bell"></i>
+              <span class="badge rounded-pill badge-notification bg-danger"
+                >1</span
+              >
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdownMenuLink"
+            >
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://myousufsoomro.github.io/Calculator-using-JavaScript/"
+                  >Calculator Assignment</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Avatar -->
+          <div class="dropdown">
+            <a
+              class="dropdown-toggle d-flex align-items-center hidden-arrow"
+              href="#"
+              id="navbarDropdownMenuAvatar"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="dp.jpg"
+                class="rounded-circle"
+                height="25"
+                alt="Black and White Portrait of a Man"
+                loading="lazy"
+              />
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdownMenuAvatar"
+            >
+              <li>
+                <a class="dropdown-item" href="https://github.com/myousufsoomro"
+                  ><i class="fa-brands fa-github"></i> GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://www.facebook.com/MYousuf88"
+                  ><i class="fa-brands fa-facebook"></i> Facebook</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="https://x.com/myousufsoomro"
+                  ><i class="fa-brands fa-twitter"></i> Twitter</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://www.instagram.com/myousufsoomro/"
+                  ><i class="fa-brands fa-instagram"></i> Instagram</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://www.linkedin.com/in/myousufsoomro/"
+                  ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Right elements -->
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+    <div class="container p-5">
+      <div>
+        <h3 class="my-5">Countdown Timer</h3>
+        <p id="selectPara">Select Time below and click start timer!</p>
+      </div>
+      <div id="inputDiv" class="row justify-content-center">
+        <div class="col-lg-4 col-md-12">
+          <input
+            type="number"
+            id="typeHours"
+            class="form-control form-control-lg"
+            value="0"
+            max="23"
+            min="0"
+          />
+          <label class="form-label" for="typeHours">Hours</label>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <input
+            type="number"
+            id="typeMinutes"
+            class="form-control form-control-lg"
+            value="0"
+            max="59"
+            min="0"
+          />
+          <label class="form-label" for="typeMinutes">Minutes</label>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <input
+            type="number"
+            id="typeSeconds"
+            class="form-control form-control-lg"
+            value="0"
+            max="59"
+            min="0"
+          />
+          <label class="form-label" for="typeSeconds">Seconds</label>
+        </div>
+        <div class="d-flex flex-row-reverse">
+          <button type="button" class="btn btn-primary" onclick="startBtn()">
+            Start
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="timerDiv"
+        class="row justify-content-center d-flex align-items-center"
+        style="visibility: hidden"
+      >
+        <div class="col-2 shadow text-center p-3 rounded bg-dark text-white">
+          <!-- HOURS -->
+          <h2 id="timerHours">0</h2>
+        </div>
+
+        <div class="col-2">
+          <h2 class="text-center">:</h2>
+        </div>
+
+        <div class="col-2 shadow text-center p-3 rounded bg-dark text-white">
+          <!-- MINUTES -->
+          <h2 id="timerMinutes">0</h2>
+        </div>
+        <div class="col-2">
+          <h2 class="text-center">:</h2>
+        </div>
+        <div class="col-2 shadow text-center p-3 rounded bg-dark text-white">
+          <!-- SECONDS -->
+          <h2 id="timerSeconds">0</h2>
+        </div>
+        <div class="d-flex flex-row-reverse">
+          <button
+            id="pauseBtnId"
+            type="button"
+            class="btn btn-warning mx-2 mt-5"
+            onclick="pauseBtn()"
+          >
+            Pause
+          </button>
+          <button
+            id="startBtn2"
+            type="button"
+            class="btn btn-primary mx-2 mt-5"
+            onclick="startBtn()"
+            style="display: none"
+          >
+            Start
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger mx-2 mt-5"
+            onclick="resetBtn()"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MDB -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"
+    ></script>
+    <!-- SWEET ALERT 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="app.js"></script>
+  </body>
+</html>
